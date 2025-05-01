@@ -100,4 +100,15 @@ To use `mysecond.website`:
 3.  **Update `baseURL`:** Change the `baseURL` in your `config.toml` file back to `baseURL = "https://mysecond.website/"`.
 4.  **Commit and Push:** Push the `config.toml` change to GitHub to trigger a redeployment with the correct base URL for the custom domain.
 
+As for DNS: These are GitHub Pages' IP addresses. You can verify the current IPs in GitHub's documentation: [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-an-apex-domain).
+```
+Add the following four A records:
+
+    Host: @, Value: 185.199.108.153, TTL: Automatic (or 30 min)
+    Host: @, Value: 185.199.109.153, TTL: Automatic (or 30 min)
+    Host: @, Value: 185.199.110.153, TTL: Automatic (or 30 min)
+    Host: @, Value: 185.199.111.153, TTL: Automatic (or 30 min)
+```
+
+
 Keep this file for future reference. Good luck with your blog!

@@ -1,4 +1,5 @@
-baseURL = "https://francescor.github.io/testhugomanus/"
+# baseURL = "https://francescor.github.io/testhugomanus/"
+baseURL = "https://mysecond.website"
 languageCode = "en-us"
 title = "My Second Website"
 theme = "ananke"
