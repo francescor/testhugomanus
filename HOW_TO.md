@@ -26,11 +26,11 @@ This document provides instructions for running, maintaining, and configuring yo
     ```markdown
     ---
     title: "My Awesome New Post"
-date: 2025-05-01T10:00:00Z
-draft: false # Set to false to publish
----
+    date: 2025-05-01T10:00:00Z
+    draft: false # Set to false to publish
+    ---
 
-This is the content of my post...
+    This is the content of my post...
     ```
 4.  **Commit and Push:** Save your changes, commit them to Git, and push to the `main` branch on GitHub. This will automatically trigger the deployment workflow.
 
