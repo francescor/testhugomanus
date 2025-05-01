@@ -43,7 +43,7 @@ To preview your site locally before pushing changes:
 3.  **Install Theme Dependencies:** Navigate to the theme directory and install dependencies:
     ```bash
     cd themes/ananke
-    npm install
+    npm install package-lock.json
     cd ../.. # Go back to project root
     ```
 4.  **Install and Run the Hugo server:**
