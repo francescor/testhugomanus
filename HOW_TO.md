@@ -46,8 +46,9 @@ To preview your site locally before pushing changes:
     npm install
     cd ../.. # Go back to project root
     ```
-4.  **Run the Hugo server:**
+4.  **Install and Run the Hugo server:**
     ```bash
+    sudo dnf install hugo
     hugo server -D
     ```
     The `-D` flag builds draft posts as well.
