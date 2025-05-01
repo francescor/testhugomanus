@@ -1,0 +1,88 @@
+baseURL = "https://mysecond.website/"
+languageCode = "en-us"
+title = "My Second Website"
+theme = "ananke"
+DefaultContentLanguage = "en"
+
+[params]
+  author = "Masaccio"
+  # Add other Ananke theme params if needed later
+
+[languages]
+  [languages.en]
+    title = "My Second Website"
+    weight = 1
+    languageName = "English"
+    contentDir = "content/en"
+    [[languages.en.menu.main]]
+      name = "Contact"
+      url = "/contact/"
+      weight = 10
+    [[languages.en.menu.main]]
+      name = "What"
+      url = "/what/"
+      weight = 20
+    [[languages.en.menu.main]]
+      name = "Where"
+      url = "/where/"
+      weight = 30
+    [[languages.en.menu.main]]
+      name = "When"
+      url = "/when/"
+      weight = 40
+    [[languages.en.menu.main]]
+      name = "Who"
+      url = "/who/"
+      weight = 50
+    [[languages.en.menu.main]]
+      name = "Why"
+      url = "/why/"
+      weight = 60
+    [[languages.en.menu.main]]
+      name = "Newsletter"
+      url = "/newsletter/"
+      weight = 70
+    [[languages.en.menu.main]]
+      name = "News"
+      url = "/news/"
+      weight = 80
+
+  [languages.it]
+    title = "Il Mio Secondo Sito Web"
+    weight = 2
+    languageName = "Italiano"
+    contentDir = "content/it"
+    [[languages.it.menu.main]]
+      name = "Contatto"
+      url = "/it/contact/"
+      weight = 10
+    [[languages.it.menu.main]]
+      name = "Cosa"
+      url = "/it/what/"
+      weight = 20
+    [[languages.it.menu.main]]
+      name = "Dove"
+      url = "/it/where/"
+      weight = 30
+    [[languages.it.menu.main]]
+      name = "Quando"
+      url = "/it/when/"
+      weight = 40
+    [[languages.it.menu.main]]
+      name = "Chi"
+      url = "/it/who/"
+      weight = 50
+    [[languages.it.menu.main]]
+      name = "Perché"
+      url = "/it/why/"
+      weight = 60
+    [[languages.it.menu.main]]
+      name = "Newsletter"
+      url = "/it/newsletter/"
+      weight = 70
+    [[languages.it.menu.main]]
+      name = "Notizie"
+      url = "/it/news/"
+      weight = 80
+
+# AI content suggestions config might be added later

@@ -1,0 +1,66 @@
+# GitHub Actions Workflow for AI Content Suggestions
+
+name: AI Content Suggestions
+
+on:
+  push:
+    branches:
+      - main # Or your default branch
+    paths:
+      - 'content/**.md'
+  pull_request:
+    paths:
+      - 'content/**.md'
+
+jobs:
+  suggest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2 # Fetch history to compare changes
+
+      - name: Identify changed Markdown files
+        id: changed_files
+        run: |
+          # This script identifies Markdown files changed in the last commit/PR
+          # For PRs, compare against the base branch
+          # For pushes, compare the last two commits
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} -- 'content/**.md' > changed_markdown_files.txt
+          else
+            git diff --name-only HEAD~1 HEAD -- 'content/**.md' > changed_markdown_files.txt
+          fi
+          echo "Changed files:"
+          cat changed_markdown_files.txt
+          # Output the list for the next step (if needed, depends on implementation)
+          echo "::set-output name=files::$(cat changed_markdown_files.txt | tr '\n' ' ')"
+
+      - name: Get AI Suggestions (Placeholder)
+        run: |
+          echo "This step is a placeholder for calling an AI service."
+          echo "You would typically use a script (e.g., Python) here."
+          echo "The script should:"
+          echo "1. Read the files listed in changed_markdown_files.txt"
+          echo "2. Send the content of each changed file to your chosen AI API."
+          echo "   - You might need to store API keys securely as GitHub secrets."
+          echo "   - Request translations (e.g., IT -> EN or EN -> IT) or text improvements."
+          echo "3. Format the AI's response."
+          echo "4. Use the GitHub CLI or API to post the suggestions as a comment on the commit or pull request."
+          echo "Example using GitHub CLI (gh):"
+          echo "# gh pr comment ${{ github.event.pull_request.number }} --body \"AI Suggestions for file.md: ...\" (for PRs)"
+          echo "# gh commit comment ${{ github.sha }} --body \"AI Suggestions for file.md: ...\" (for pushes)"
+          # Example Python script call (requires python setup)
+          # python .github/scripts/get_ai_suggestions.py changed_markdown_files.txt ${{ secrets.AI_API_KEY }} ${{ github.repository }} ${{ github.sha }} ${{ github.event.pull_request.number }}
+
+      # Optional: Add steps to install Python, dependencies, GitHub CLI if needed
+      # - name: Set up Python
+      #   uses: actions/setup-python@v3
+      #   with:
+      #     python-version: '3.x'
+      # - name: Install dependencies
+      #   run: pip install requests PyGithub # Example dependencies
+      # - name: Install GitHub CLI
+      #   run: sudo apt-get update && sudo apt-get install gh -y
+
